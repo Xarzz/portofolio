@@ -168,25 +168,30 @@ const Hero = () => {
           </div>
         </div>
         
-        {/* Abstract Tech Visual */}
-        <motion.div 
-          initial={{ opacity: 0, x: -40 }}
-          animate={imgLoaded ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: 1.2 }}
-          className={styles.visualSide}
-        >
+        <div className={styles.visualSide}>
           <div className={styles.imageWrapper}>
-            <img 
+            {/* Background Shape Enters Early */}
+            <motion.div 
+              initial={{ opacity: 0, scaleX: 0 }}
+              animate={{ opacity: 0.08, scaleX: 1 }}
+              transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.8 }}
+              className={styles.geometricBackdrop} 
+            />
+
+            {/* Portrait Image Enters LATE & ALONE */}
+            <motion.img 
+              key="hero-image"
               src="/hero-portrait.png" 
               alt="Muhammad Uhib Ibadatarrahman" 
               className={styles.heroImage} 
               onLoad={() => setImgLoaded(true)}
-              style={{ opacity: imgLoaded ? 1 : 0, transition: 'opacity 0.5s ease-in' }}
+              initial={{ opacity: 0, x: -80 }}
+              animate={imgLoaded ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 1.8, ease: [0.76, 0, 0.24, 1], delay: 2.2 }}
+              style={{ display: imgLoaded ? 'block' : 'none' }}
             />
-            {/* Sporty Geometric Backdrop instead of corner */}
-            <div className={styles.geometricBackdrop} />
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
