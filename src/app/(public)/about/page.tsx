@@ -57,12 +57,12 @@ const AboutPage = () => {
               </div>
               <div className={`${styles.statsCard} glass`}>
                 <div className={styles.stat}>
-                  <span className={styles.statNumber}>1+</span>
-                  <span className={styles.statLabel}>Years Exp</span>
+                  <span className={styles.statNumber}>Jan</span>
+                  <span className={styles.statLabel}>2024 Start</span>
                 </div>
                 <div className={styles.stat}>
-                  <span className={styles.statNumber}>10+</span>
-                  <span className={styles.statLabel}>Projects</span>
+                  <span className={styles.statNumber}>02+</span>
+                  <span className={styles.statLabel}>Real Projs</span>
                 </div>
               </div>
 
