@@ -85,7 +85,7 @@ const AboutPage = () => {
                 </div>
                 <div className={styles.infoItem}>
                   <Mail size={18} className={styles.icon} />
-                  <span>muhammaduhib@example.com</span>
+                  <span>muhammaduhibibadatarrahman@gmail.com</span>
                 </div>
               </div>
 

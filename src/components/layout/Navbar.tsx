@@ -5,6 +5,7 @@ import styles from './Navbar.module.css';
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,21 +60,46 @@ const Navbar = () => {
         </button>
 
         {/* Mobile Menu Overlay */}
-        <div className={`${styles.mobileMenu} ${isOpen ? styles.active : ''} glass`}>
-          <ul className={styles.mobileLinks}>
-            {navLinks.map((link) => (
-              <li key={link.path}>
-                <Link 
-                  href={link.path} 
-                  className={`${styles.mobileLink} ${pathname === link.path ? styles.mobileActive : ''}`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div 
+              className={styles.mobileMenu}
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            >
+              <div className={styles.mobileMenuHeader}>
+                 <Link href="/" className={styles.logo} onClick={() => setIsOpen(false)}>
+                  MUI<span>.</span>
                 </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+                <button onClick={() => setIsOpen(false)} className={styles.closeBtn}>
+                  <X size={28} />
+                </button>
+              </div>
+
+              <ul className={styles.mobileLinks}>
+                {navLinks.map((link, i) => (
+                  <motion.li 
+                    key={link.path}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + i * 0.05 }}
+                  >
+                    <Link 
+                      href={link.path} 
+                      className={`${styles.mobileLink} ${pathname === link.path ? styles.mobileActive : ''}`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      <span className={styles.linkNumber}>0{i+1}</span>
+                      {link.name}
+                    </Link>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );

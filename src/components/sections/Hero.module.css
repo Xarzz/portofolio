@@ -260,34 +260,75 @@
 }
 
 @media (max-width: 1100px) {
+  .hero {
+    padding-top: 100px;
+    min-height: auto;
+    padding-bottom: 4rem;
+    display: block;
+  }
+
   .container {
-    grid-template-columns: 1fr;
-    gap: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
   }
   
   .content {
-    padding: 2rem 0;
-    z-index: 2;
+    padding: 0;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .lowerInfo {
+    align-items: center;
+  }
+
+  .nameBlock {
+    align-items: center;
+  }
+
+  .voltLine {
+    left: 50%;
+    transform: translateX(-50%);
   }
   
   .visualSide {
-    position: absolute;
-    top: 0;
-    right: -20%;
-    width: 60%;
-    height: 100%;
-    opacity: 0.3 !important;
-    z-index: 1;
-    pointer-events: none;
+    position: relative;
+    right: 0;
+    width: 100%;
+    height: 400px;
+    opacity: 1 !important;
+    order: -1; /* image on top on mobile */
+    pointer-events: auto;
+    justify-content: center;
+  }
+
+  .heroImage {
+    object-position: center bottom;
+    width: auto;
+    max-height: 100%;
+  }
+
+  .geometricBackdrop {
+    right: 50%;
+    transform: translateX(50%) skewX(-12deg);
+    width: 300px;
   }
 }
 
 @media (max-width: 600px) {
-  .firstName { font-size: 3rem; }
-  .lastName { font-size: 3.5rem; }
-  .voltLine { width: 100px; }
+  .firstName { font-size: 2.8rem; }
+  .lastName { font-size: 3.2rem; }
+  .voltLine { width: 80px; }
+  .title { font-size: 1.1rem; }
+  .description { font-size: 0.95rem; }
   
   .bgTextLine {
-    font-size: 6rem;
+    font-size: 5rem;
+  }
+
+  .visualSide {
+    height: 320px;
   }
 }
