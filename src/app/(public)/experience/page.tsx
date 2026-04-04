@@ -108,6 +108,8 @@ const ExperienceCarousel = ({ urls }: { urls: string[] }) => {
   );
 };
 
+export const dynamic = 'force-dynamic';
+
 const ExperiencePage = () => {
   const [items, setItems] = useState<Experience[]>([]);
   const [loading, setLoading] = useState(true);

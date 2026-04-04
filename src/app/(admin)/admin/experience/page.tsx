@@ -17,6 +17,8 @@ interface Experience {
   image_urls: string[];
 }
 
+export const dynamic = 'force-dynamic';
+
 export default function AdminExperience() {
   const [items, setItems] = useState<Experience[]>([]);
   const [loading, setLoading] = useState(true);
