@@ -237,14 +237,23 @@
   .content {
     flex-direction: column;
     text-align: center;
+    gap: 3rem;
   }
   
   .visualSide {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  .textSide {
+    width: 100%;
+    align-items: center;
+    text-align: center;
   }
   
   .infoGrid, .highlights {
     justify-content: center;
+    width: 100%;
   }
   
   .infoItem, .highlight {
@@ -252,37 +261,44 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .page {
     padding-top: 100px;
   }
 
   .title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
   
   .imageBox {
-    width: 280px;
-    height: 320px;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 1 / 1.1;
+    margin: 0 auto;
   }
 
   .techBackdrop {
     width: 100%;
     left: 0;
-    top: 5%;
+    top: 0;
+    transform: none;
+    border-width: 2px;
+    height: 100%;
   }
   
   .statsCard {
     position: relative;
     right: 0;
     bottom: 0;
-    margin-top: -40px;
-    width: 260px;
+    margin: -30px auto 0;
+    width: 90%;
+    max-width: 300px;
     padding: 1.25rem;
     gap: 1.5rem;
-    z-index: 5;
-    margin-left: auto;
-    margin-right: auto;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
   }
 
   .statNumber {
@@ -293,12 +309,21 @@
     font-size: 2.2rem;
   }
 
+  .role {
+    font-size: 1rem;
+  }
+
   .infoItem {
     flex-direction: column;
     gap: 0.25rem;
   }
   
   .emailLink {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    word-break: break-all;
+  }
+
+  .highlights {
+    grid-template-columns: 1fr;
   }
 }
