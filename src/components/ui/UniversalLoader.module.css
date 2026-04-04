@@ -1,0 +1,93 @@
+.loaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;
+  width: 100%;
+}
+
+.fullScreen {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-dark);
+  z-index: 9999;
+  padding: 0;
+}
+
+.loaderWrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Core Diamond */
+.diamond {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  transform-style: preserve-3d;
+  background: linear-gradient(135deg, var(--primary) 0%, rgba(139, 92, 246, 0.4) 100%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  box-shadow: 0 0 40px var(--primary-glow);
+  z-index: 10;
+}
+
+.glow {
+  position: absolute;
+  inset: 5px;
+  background: white;
+  opacity: 0.1;
+  clip-path: inherit;
+}
+
+/* Orbiting Rings */
+.ring, .ringInner {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(139, 92, 246, 0.4);
+}
+
+.ring {
+  width: 130px;
+  height: 130px;
+  border-width: 2px;
+}
+
+.ringInner {
+  width: 100px;
+  height: 100px;
+}
+
+/* Scanning Pulse */
+.pulse {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+}
+
+/* Loading Text */
+.loadingText {
+  position: absolute;
+  bottom: -40px;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.loadingText span {
+  color: var(--primary);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

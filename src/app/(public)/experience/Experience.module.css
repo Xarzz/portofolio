@@ -1,0 +1,335 @@
+.page {
+  padding-top: 140px;
+  padding-bottom: 5rem;
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.timelineSection {
+  padding: 2rem 0;
+  position: relative;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 40px;
+}
+
+/* Glowing vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15px;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary), var(--secondary), transparent);
+  box-shadow: 0 0 8px var(--primary-glow), 0 0 20px rgba(139, 92, 246, 0.1);
+}
+
+.timelineItem {
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.timelineItem:last-child {
+  padding-bottom: 0;
+}
+
+/* Glowing dot on timeline */
+.dotOuter {
+  position: absolute;
+  left: -33px;
+  top: 2rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-dark);
+  border: 2px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 0 12px var(--primary-glow);
+}
+
+.dotInner {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
+
+.card {
+  padding: 2.5rem;
+  border-radius: 24px;
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent 40%, var(--primary) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateX(10px) translateY(-5px);
+  border-color: rgba(139, 92, 246, 0.3) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 40px rgba(139, 92, 246, 0.1);
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+.iconContainer {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px var(--primary-glow);
+  transition: transform 0.3s ease;
+}
+
+.card:hover .iconContainer {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+}
+
+.role {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.card:hover .role {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.company {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+.logoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.workPreview {
+  margin-top: 1.5rem;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.workPreview:hover {
+  transform: scale(1.02) translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 15px 40px rgba(139, 92, 246, 0.2);
+}
+
+.previewImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.workPreview:hover .previewImg {
+  transform: scale(1.1);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent);
+  pointer-events: none;
+}
+
+.carouselIndicators {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 5;
+}
+
+.indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.activeIndicator {
+  width: 20px;
+  border-radius: 10px;
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.descriptionWrapper {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.description {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.toggleBtn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  transition: opacity 0.2s ease;
+}
+
+.toggleBtn:hover {
+  opacity: 0.8;
+}
+
+/* Present badge */
+.presentBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 100px;
+  background: rgba(0, 255, 120, 0.08);
+  border: 1px solid rgba(0, 255, 120, 0.2);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #22c55e;
+}
+
+.presentDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .card {
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+
+  .timeline {
+    padding-left: 30px;
+  }
+
+  .timeline::before {
+    left: 10px;
+  }
+
+  .dotOuter {
+    left: -26px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .dotInner {
+    width: 6px;
+    height: 6px;
+  }
+}

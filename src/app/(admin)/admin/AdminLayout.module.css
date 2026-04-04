@@ -1,0 +1,24 @@
+.adminLayout {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-dark);
+}
+
+.adminMain {
+  flex: 1;
+  margin-left: 280px;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.contentContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+  .adminMain {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+}
