@@ -8,6 +8,21 @@
   background-color: var(--bg-dark);
 }
 
+.ambientOverlay {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambientNode {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  filter: blur(40px);
+}
+
 .cursorGlow {
   position: fixed;
   top: 0;

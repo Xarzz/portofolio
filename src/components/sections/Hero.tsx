@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
+  const [imgLoaded, setImgLoaded] = useState(false);
   // Spring animation config for that aggressive, fast snap feel
   const springConfig = { type: "spring" as const, stiffness: 100, damping: 15, mass: 1 };
   
@@ -27,6 +28,33 @@ const Hero = () => {
   
   return (
     <section className={styles.hero} onMouseMove={handleMouseMove}>
+      {/* Background Floating Nodes (Mobile-Friendly Interactive Feel) */}
+      <div className={styles.ambientOverlay}>
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            className={styles.ambientNode}
+            animate={{
+              y: [0, -40, 0],
+              x: [0, 20, 0],
+              opacity: [0.05, 0.12, 0.05],
+              scale: [1, 1.2, 1]
+            }}
+            transition={{
+              duration: 5 + i * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.5
+            }}
+            style={{
+              left: `${(i * 15) % 100}%`,
+              top: `${(i * 12) % 100}%`,
+              width: `${100 + i * 30}px`,
+              height: `${100 + i * 30}px`,
+            }}
+          />
+        ))}
+      </div>
       
       {/* Mouse Follow Glow */}
       <motion.div
@@ -142,9 +170,9 @@ const Hero = () => {
         
         {/* Abstract Tech Visual */}
         <motion.div 
-          initial={{ opacity: 0, x: -60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.5 }}
+          initial={{ opacity: 0, x: -40 }}
+          animate={imgLoaded ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: 1.2 }}
           className={styles.visualSide}
         >
           <div className={styles.imageWrapper}>
@@ -152,6 +180,8 @@ const Hero = () => {
               src="/hero-portrait.png" 
               alt="Muhammad Uhib Ibadatarrahman" 
               className={styles.heroImage} 
+              onLoad={() => setImgLoaded(true)}
+              style={{ opacity: imgLoaded ? 1 : 0, transition: 'opacity 0.5s ease-in' }}
             />
             {/* Sporty Geometric Backdrop instead of corner */}
             <div className={styles.geometricBackdrop} />
