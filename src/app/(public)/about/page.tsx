@@ -85,7 +85,9 @@ const AboutPage = () => {
                 </div>
                 <div className={styles.infoItem}>
                   <Mail size={18} className={styles.icon} />
-                  <span>muhammaduhibibadatarrahman@gmail.com</span>
+                  <a href="mailto:muhammaduhibibadatarrahman@gmail.com" className={styles.emailLink}>
+                    muhammaduhibibadatarrahman@gmail.com
+                  </a>
                 </div>
               </div>
 
