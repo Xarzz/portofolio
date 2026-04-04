@@ -29,32 +29,37 @@ const Hero = () => {
   return (
     <section className={styles.hero} onMouseMove={handleMouseMove}>
       {/* Background Floating Nodes (Mobile-Friendly Interactive Feel) */}
-      <div className={styles.ambientOverlay}>
-        {[...Array(8)].map((_, i) => (
+      <motion.div 
+        className={styles.ambientOverlay}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      >
+        {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
             className={styles.ambientNode}
             animate={{
-              y: [0, -40, 0],
-              x: [0, 20, 0],
-              opacity: [0.05, 0.12, 0.05],
-              scale: [1, 1.2, 1]
+              y: [0, -30, 0],
+              x: [0, 15, 0],
+              opacity: [0.05, 0.1, 0.05],
+              scale: [1, 1.1, 1]
             }}
             transition={{
-              duration: 5 + i * 2,
+              duration: 8 + i * 2,
               repeat: Infinity,
               ease: "easeInOut",
               delay: i * 0.5
             }}
             style={{
-              left: `${(i * 15) % 100}%`,
-              top: `${(i * 12) % 100}%`,
-              width: `${100 + i * 30}px`,
-              height: `${100 + i * 30}px`,
+              left: `${(i * 20) % 100}%`,
+              top: `${(i * 15) % 100}%`,
+              width: `${150 + i * 40}px`,
+              height: `${150 + i * 40}px`,
             }}
           />
         ))}
-      </div>
+      </motion.div>
       
       {/* Mouse Follow Glow */}
       <motion.div

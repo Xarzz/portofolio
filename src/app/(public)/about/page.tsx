@@ -8,6 +8,38 @@ import { User, MapPin, Mail, Award, BookOpen, Coffee } from 'lucide-react';
 const AboutPage = () => {
   return (
     <div className={styles.page}>
+      {/* Background Floating Nodes (Mobile-Friendly Interactive Feel) */}
+      <motion.div 
+        className={styles.ambientOverlay}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      >
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            className={styles.ambientNode}
+            animate={{
+              y: [0, -40, 0],
+              x: [0, 20, 0],
+              opacity: [0.03, 0.08, 0.03],
+              scale: [1, 1.2, 1]
+            }}
+            transition={{
+              duration: 10 + i * 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.5
+            }}
+            style={{
+              left: `${(i * 25) % 100}%`,
+              top: `${(i * 15) % 100}%`,
+              width: `${200 + i * 50}px`,
+              height: `${200 + i * 50}px`,
+            }}
+          />
+        ))}
+      </motion.div>
       {/* Background Typography */}
       <div className={styles.bgTypography} aria-hidden="true">
         <motion.div 

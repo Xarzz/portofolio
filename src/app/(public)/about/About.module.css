@@ -5,6 +5,23 @@
   overflow: hidden;
 }
 
+.ambientOverlay {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  will-change: opacity;
+}
+
+.ambientNode {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  filter: blur(40px);
+  will-change: transform, opacity;
+}
+
 .bgTypography {
   position: absolute;
   top: -5%;
@@ -202,6 +219,17 @@
   text-decoration: none;
   transition: all 0.3s ease;
   word-break: break-all;
+}
+
+@media (max-width: 600px) {
+  .emailLink {
+     display: block;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     max-width: 220px;
+     font-size: 0.8rem;
+  }
 }
 
 .emailLink:hover {
