@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import ProjectCard from '@/components/ui/ProjectCard';
 import styles from './Projects.module.css';
 import { FolderKanban, Star } from 'lucide-react';
@@ -17,7 +17,7 @@ interface Project {
   featured: boolean;
 }
 
-const container = {
+const container: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -25,9 +25,14 @@ const container = {
   },
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 30, scale: 0.95 },
-  show: { opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 80 } },
+  show: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1, 
+    transition: { type: 'spring' as const, stiffness: 80 } 
+  },
 };
 
 export default function ProjectsClient({ projects }: { projects: Project[] }) {
