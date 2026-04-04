@@ -58,7 +58,7 @@ const AboutPage = () => {
               <div className={`${styles.statsCard} glass`}>
                 <div className={styles.stat}>
                   <span className={styles.statNumber}>Jan</span>
-                  <span className={styles.statLabel}>2024 Start</span>
+                  <span className={styles.statLabel}>2026 Start</span>
                 </div>
                 <div className={styles.stat}>
                   <span className={styles.statNumber}>02+</span>
