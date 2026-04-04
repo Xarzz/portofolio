@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "Muhammad Uhib Ibadatarrahman | Junior Web Developer",
   description: "Portfolio of Muhammad Uhib Ibadatarrahman, a passionate Junior Web Developer specialized in Next.js and modern web technologies.",
   keywords: ["web developer", "next.js", "muhammad uhib ibadatarrahman", "portfolio", "junior developer"],
+  icons: {
+    icon: '/favicon.jpg',
+  },
 };
 
 export default function RootLayout({
