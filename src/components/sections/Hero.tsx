@@ -142,9 +142,9 @@ const Hero = () => {
         
         {/* Abstract Tech Visual */}
         <motion.div 
-          initial={{ opacity: 0, clipPath: 'polygon(0 0, 0 0, 0 100%, 0% 100%)' }}
-          animate={{ opacity: 1, clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}
-          transition={{ duration: 1, ease: [0.76, 0, 0.24, 1], delay: 0.5 }}
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.5 }}
           className={styles.visualSide}
         >
           <div className={styles.imageWrapper}>

@@ -273,61 +273,76 @@
 
   .title {
     font-size: 2.5rem;
+    margin-bottom: 0.5rem;
   }
   
   .imageBox {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-    aspect-ratio: 1 / 1.1;
+    width: 320px;
+    height: 320px;
     margin: 0 auto;
-    border-radius: 12px;
+    border-radius: 16px;
+    position: relative;
+    z-index: 1;
   }
 
-  .techBackdrop {
-    display: none; /* Hide problematic backdrop on small mobile */
-  }
-  
-  .statsCard {
-    position: relative;
+  .visualSide {
+    margin-bottom: 4rem;
     width: 100%;
-    max-width: 300px;
-    margin: 1.5rem auto 0;
-    padding: 1rem;
-    gap: 1.5rem;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .statsCard {
+    position: absolute;
+    bottom: -20px;
+    right: 50%;
+    transform: translateX(85%);
+    width: 190px;
+    padding: 0.75rem 1rem;
+    gap: 1rem;
     z-index: 10;
     display: flex;
     justify-content: center;
     border-radius: 12px;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--accent-volt);
   }
 
   .statNumber {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+  }
+
+  .statLabel {
+    font-size: 0.6rem;
   }
 
   .name {
     font-size: 2.2rem;
+    line-height: 1.1;
   }
 
   .role {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .infoItem {
     flex-direction: column;
     gap: 0.25rem;
     align-items: center;
-    width: 100%;
   }
   
   .emailLink {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     word-break: break-all;
-    max-width: 100%;
+    max-width: 250px;
   }
 
   .highlights {
     grid-template-columns: 1fr;
     width: 100%;
+    max-width: 320px;
+    margin: 2rem auto 0;
   }
 }
