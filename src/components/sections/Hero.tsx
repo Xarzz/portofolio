@@ -28,39 +28,6 @@ const Hero = () => {
   
   return (
     <section className={styles.hero} onMouseMove={handleMouseMove}>
-      {/* Background Floating Nodes (Mobile-Friendly Interactive Feel) */}
-      <motion.div 
-        className={styles.ambientOverlay}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-      >
-        {[...Array(6)].map((_, i) => (
-          <motion.div
-            key={i}
-            className={styles.ambientNode}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, 15, 0],
-              opacity: [0.05, 0.1, 0.05],
-              scale: [1, 1.1, 1]
-            }}
-            transition={{
-              duration: 8 + i * 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: i * 0.5
-            }}
-            style={{
-              left: `${30 + (i * 10)}%`,
-              top: `${20 + (i * 10)}%`,
-              width: `${250 + i * 50}px`,
-              height: `${250 + i * 50}px`,
-            }}
-          />
-        ))}
-      </motion.div>
-      
       {/* Mouse Follow Glow */}
       <motion.div
         className={styles.cursorGlow}
@@ -175,11 +142,41 @@ const Hero = () => {
         
         <div className={styles.visualSide}>
           <div className={styles.imageWrapper}>
+            {/* Focal Ambient Glow (Directly behind image) */}
+            <div className={styles.imageGlowContainer}>
+              {[...Array(4)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className={styles.ambientNode}
+                  animate={{
+                    y: [0, -20, 0],
+                    x: [0, 10, 0],
+                    scale: [1, 1.2, 1],
+                  }}
+                  transition={{
+                    duration: 4 + i * 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: i * 0.5
+                  }}
+                  style={{
+                    width: `${300 + i * 100}px`,
+                    height: `${300 + i * 100}px`,
+                    left: '50%',
+                    top: '50%',
+                    marginLeft: `-${(300 + i * 100) / 2}px`,
+                    marginTop: `-${(300 + i * 100) / 2}px`,
+                    opacity: 0.1,
+                  }}
+                />
+              ))}
+            </div>
+
             {/* Background Shape Enters Early */}
             <motion.div 
               initial={{ opacity: 0, scaleX: 0 }}
               animate={{ opacity: 0.08, scaleX: 1 }}
-              transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1], delay: 0.8 }}
+              transition={{ duration: 1.2, ease: "easeOut", delay: 0.8 }}
               className={styles.geometricBackdrop} 
             />
 
@@ -190,9 +187,13 @@ const Hero = () => {
               alt="Muhammad Uhib Ibadatarrahman" 
               className={styles.heroImage} 
               onLoad={() => setImgLoaded(true)}
-              initial={{ opacity: 0, x: -80 }}
+              initial={{ opacity: 0, x: -40 }}
               animate={imgLoaded ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 1.8, ease: [0.76, 0, 0.24, 1], delay: 2.2 }}
+              transition={{ 
+                duration: 1.5, 
+                ease: [0.22, 1, 0.36, 1], // exponential ease-out for smoother feel
+                delay: 2.2 
+              }}
               style={{ display: imgLoaded ? 'block' : 'none' }}
             />
           </div>
