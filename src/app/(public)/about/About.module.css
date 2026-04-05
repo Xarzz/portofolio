@@ -305,12 +305,19 @@
   }
   
   .imageBox {
-    width: 320px;
+    width: 90vw;
+    max-width: 320px;
     height: 320px;
     margin: 0 auto;
     border-radius: 16px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+  }
+
+  .techBackdrop {
+    width: 100vw;
+    left: -5vw;
+    top: 5%;
   }
 
   .visualSide {
@@ -323,10 +330,10 @@
 
   .statsCard {
     position: absolute;
-    bottom: -15px;
-    right: 50%;
-    transform: translateX(90%);
-    width: 170px;
+    bottom: -20px;
+    right: 5%;
+    width: auto;
+    max-width: 90%;
     padding: 0.5rem 0.75rem;
     gap: 0.75rem;
     z-index: 10;

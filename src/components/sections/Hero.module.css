@@ -340,9 +340,13 @@
 
   .geometricBackdrop {
     right: 50%;
-    transform: translateX(50%) skewX(-12deg);
-    width: 300px;
+    top: 5%;
+    height: 90%;
+    transform: translateX(50%) skewX(-10deg);
+    width: 80vw;
+    opacity: 0.15;
   }
+
 }
 
 @media (max-width: 600px) {
