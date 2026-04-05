@@ -75,9 +75,8 @@
 
 .content {
   display: flex;
-  gap: 2rem; /* Shorter gap for easier overlap */
+  gap: 5rem;
   align-items: center;
-  position: relative;
 }
 
 .visualSide {
@@ -86,8 +85,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: -100px; /* Pull the visual side over the text area */
-  z-index: 3;
 }
 
 .imageBox {
@@ -178,9 +175,6 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  position: relative;
-  z-index: 2;
-  padding-left: 80px; /* Counter-padding to help overlap look natural */
 }
 
 .name {
@@ -297,45 +291,6 @@
   
   .infoItem, .highlight {
     justify-content: center;
-  }
-}
-
-@media (max-width: 500px) {
-  .title {
-    font-size: 2.2rem;
-  }
-  
-  .imageBox {
-    width: 260px; /* Ukuran GIF lebih kecil di HP */
-    height: 180px;
-    margin-bottom: 2rem;
-  }
-  
-  .statsCard {
-    right: 50%;
-    transform: translateX(50%);
-    bottom: -25px;
-    padding: 0.8rem 1.2rem; /* Kartu statistik lebih minimalis */
-    gap: 1.2rem;
-    width: max-content;
-    border-radius: 12px;
-  }
-
-  .statNumber {
-    font-size: 1.4rem; /* Angka dikecilkan */
-  }
-
-  .statLabel {
-    font-size: 0.65rem; /* Teks label lebih kecil */
-  }
-
-  .name {
-    font-size: 2.2rem;
-  }
-
-  .bio {
-    font-size: 0.95rem;
-    line-height: 1.6;
   }
 }
 
