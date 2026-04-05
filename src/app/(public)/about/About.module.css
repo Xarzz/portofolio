@@ -294,6 +294,45 @@
   }
 }
 
+@media (max-width: 500px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  
+  .imageBox {
+    width: 260px; /* Ukuran GIF lebih kecil di HP */
+    height: 180px;
+    margin-bottom: 2rem;
+  }
+  
+  .statsCard {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: -25px;
+    padding: 0.8rem 1.2rem; /* Kartu statistik lebih minimalis */
+    gap: 1.2rem;
+    width: max-content;
+    border-radius: 12px;
+  }
+
+  .statNumber {
+    font-size: 1.4rem; /* Angka dikecilkan */
+  }
+
+  .statLabel {
+    font-size: 0.65rem; /* Teks label lebih kecil */
+  }
+
+  .name {
+    font-size: 2.2rem;
+  }
+
+  .bio {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
 @media (max-width: 600px) {
   .page {
     padding-top: 100px;
