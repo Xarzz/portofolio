@@ -287,6 +287,8 @@
   border-radius: 20px;
 }
 
+
+
 @media (max-width: 1100px) {
   .hero {
     padding-top: 100px;
@@ -336,18 +338,40 @@
     object-position: center bottom;
     width: auto;
     max-height: 100%;
+    transform-origin: center bottom;
   }
 
   .geometricBackdrop {
-    right: 50%;
-    top: 5%;
-    height: 90%;
-    transform: translateX(50%) skewX(-10deg);
-    width: 80vw;
+    width: 350px;
+    height: auto;
+    left: 50%;
+    top: 15%;
+    bottom: 0;
+    transform: translateX(-50%) skewX(-12deg);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
     opacity: 0.15;
   }
 
 }
+
+@media (max-width: 768px) {
+  .geometricBackdrop {
+    width: 100%;
+    max-width: 400px;
+    left: 50%;
+    top: 15%;
+    bottom: 0;
+    height: auto;
+    transform: translateX(-50%) skewX(-8deg);
+    transform-origin: bottom center;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    opacity: 0.15;
+  }
+}
+
+
 
 @media (max-width: 600px) {
   .firstName { font-size: 2.8rem; }

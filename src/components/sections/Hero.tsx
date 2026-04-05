@@ -4,6 +4,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import styles from './Hero.module.css';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
@@ -102,6 +103,7 @@ const Hero = () => {
             </motion.h2>
           </motion.div>
 
+
           <div className={styles.lowerInfo}>
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
@@ -141,6 +143,8 @@ const Hero = () => {
         </div>
         
         <div className={styles.visualSide}>
+          <div className={styles.geometricBackdrop} />
+          
           <div className={styles.imageWrapper}>
             {/* Focal Ambient Glow (Directly behind image) */}
             <div className={styles.imageGlowContainer}>
@@ -172,30 +176,27 @@ const Hero = () => {
               ))}
             </div>
 
-            {/* Background Shape Enters Early */}
-            <motion.div 
-              initial={{ opacity: 0, scaleX: 0 }}
-              animate={{ opacity: 0.08, scaleX: 1 }}
-              transition={{ duration: 1.2, ease: "easeOut", delay: 0.8 }}
-              className={styles.geometricBackdrop} 
-            />
-
-            {/* Portrait Image Enters LATE & ALONE */}
-            <motion.img 
-              key="hero-image"
-              src="/hero-portrait.png" 
-              alt="Muhammad Uhib Ibadatarrahman" 
-              className={styles.heroImage} 
-              onLoad={() => setImgLoaded(true)}
-              initial={{ opacity: 0, x: -40 }}
-              animate={imgLoaded ? { opacity: 1, x: 0 } : {}}
+            {/* Portrait Image using Next/Image for priority loading bypassing the load-bug */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ 
-                duration: 1.5, 
-                ease: [0.22, 1, 0.36, 1], // exponential ease-out for smoother feel
-                delay: 2.2 
+                duration: 1.2, 
+                ease: [0.22, 1, 0.36, 1],
+                delay: 0.6
               }}
-              style={{ display: imgLoaded ? 'block' : 'none' }}
-            />
+              style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center' }}
+            >
+              <Image 
+                src="/hero-portrait.png" 
+                alt="Muhammad Uhib Ibadatarrahman" 
+                className={styles.heroImage}
+                width={800}    
+                height={1000}  
+                priority={true} 
+                quality={100}   
+              />
+            </motion.div>
           </div>
         </div>
       </div>
